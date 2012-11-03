@@ -6,8 +6,7 @@
  */
 
 if ( !class_exists( 'lessc' ) ) {
-  require_once locate_template('/lib/less.php');                // Less to CSS PHP Compiler
+  require_once locate_template('/lib/less_compiler/lessc.inc.php');                // Less to CSS PHP Compiler
 }
 
 require_once locate_template('/lib/customizer/customizer.php'); // Customizer functions
-require_once locate_template('/lib/custom.php');                // Custom functions
