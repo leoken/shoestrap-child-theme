@@ -159,3 +159,6 @@ ul.social-links .social-links a:hover {
   display: block;
   text-decoration: none;
 }
+.navbar .nav > li.social-networks > a {
+  padding: 10px 0;
+}

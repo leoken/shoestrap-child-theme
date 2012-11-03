@@ -19,8 +19,9 @@ function roots_scripts() {
 
   $shoestrap_responsive = get_theme_mod( 'shoestrap_responsive' );
 
-  wp_enqueue_style('roots_bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', false, null);
+  wp_enqueue_style('roots_bootstrap', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css', false, null);
   wp_enqueue_style('shoestrap_styles', get_stylesheet_directory_uri() . '/assets/css/style.css', false, null);
+  wp_enqueue_style('awesome_font', get_stylesheet_directory_uri() . '/assets/css/font-awesome.css', false, null);
 
   if ( $shoestrap_responsive != '0' ) {
     wp_enqueue_style('roots_bootstrap_responsive', get_template_directory_uri() . '/assets/css/bootstrap-responsive.css', array('roots_bootstrap'), null);
