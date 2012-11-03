@@ -1,4 +1,4 @@
-@import "bootstrap-less/buttonsresponsive.less";
+@import "less/buttonsresponsive.less";
 .clearfix {
   *zoom: 1;
 }

@@ -107,7 +107,7 @@ function shoestrap_register_controls( $wp_customize ){
  
   // Responsive/Fixed-Width layout
   $wp_customize->add_control( 'shoestrap_responsive', array(
-    'label'       => __( '"Affix" Sidebar', 'shoestrap' ),
+    'label'       => __( 'Responsive / Fixed-width', 'shoestrap' ),
     'section'     => 'shoestrap_layout',
     'settings'    => 'shoestrap_responsive',
     'type'        => 'select',
