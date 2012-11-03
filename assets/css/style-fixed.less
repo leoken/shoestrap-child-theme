@@ -1,29 +1,8 @@
-@import "bootstrap-less/bootstrap.less";
-
-// Required from wordpress.org
-.wp-caption{}
-.wp-caption-text{}
-.sticky{}
-.gallery-caption{}
-.bypostauthor{}
+@import "bootstrap-less/variables.less";
+@import "bootstrap-less/mixins.less";
+@import "bootstrap-less/buttonsresponsive.less";
 
 #wrap{padding: 20px;}
-
-/* Fixed Topbar Navigation */
-body{
-  &.top-navbar { padding-top: 60px; }
-  &.admin-bar{
-    .navbar-fixed-top { top: 28px; }
-  }
-}
-
-.aligncenter { display: block; margin: 0 auto; }
-
-.alignleft { float: left; }
-
-.alignright { float: right; }
-
-figure.alignnone { margin-left: 0; margin-right: 0; }
 
 .logo-wrapper{margin-top: -20px;
   .logo{padding: 20px 0;
