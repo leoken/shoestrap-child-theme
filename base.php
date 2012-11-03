@@ -22,12 +22,12 @@
     <?php do_action('shoestrap_pre_content'); ?>
     <div id="content" class="row">
       <?php do_action('shoestrap_pre_main'); ?>
-      <div id="main" class="<?php echo shoestrap_main_class(); ?>" role="main">
-        <?php include shoestrap_template_path(); ?>
+      <div id="main" class="<?php echo roots_main_class(); ?>" role="main">
+        <?php include roots_template_path(); ?>
       </div>
       <?php do_action('shoestrap_after_main'); ?>
-      <?php if (shoestrap_display_sidebar()) : ?>
-      <aside id="sidebar" class="<?php echo shoestrap_sidebar_class(); ?>" role="complementary">
+      <?php if (roots_display_sidebar()) : ?>
+      <aside id="sidebar" class="<?php echo roots_sidebar_class(); ?>" role="complementary">
         <?php do_action('shoestrap_pre_sidebar'); ?>
         <?php get_template_part('templates/sidebar'); ?>
         <?php do_action('shoestrap_after_sidebar'); ?>
