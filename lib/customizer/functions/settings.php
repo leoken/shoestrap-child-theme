@@ -4,9 +4,12 @@
  * Adds settings to the customizer
  */
 function shoestrap_register_settings( $wp_customize ){
+  
+  $background_color = get_theme_mod( 'background_color' );
+  $background_color = '#' . str_replace( '#', '', $background_color );
 
   $settings   = array();
-  $settings[] = array( 'slug' => 'shoestrap_text_variation',            'default' => 'dark' );
+  $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
   $settings[] = array( 'slug' => 'shoestrap_navbar_color',              'default' => '#ffffff' );
   $settings[] = array( 'slug' => 'shoestrap_aside_layout',              'default' => 'right' );
   $settings[] = array( 'slug' => 'shoestrap_aside_affix',               'default' => 'normal' );

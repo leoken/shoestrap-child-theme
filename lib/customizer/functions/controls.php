@@ -21,7 +21,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
  * Create the controls in the customizer.
  */
 function shoestrap_register_controls( $wp_customize ){
-  
+
+  $wp_customize->remove_control( 'background_color' );  
 /*
  * HEADER AND BRANDING
  */
@@ -193,17 +194,16 @@ function shoestrap_register_controls( $wp_customize ){
  * GENERAL COLORS AND BACKGROUND SECTION
  */
  
-  //Text variation (light/dark)
-  $wp_customize->add_control( 'shoestrap_text_variation', array(
-    'label'       => __( 'Text Variation', 'shoestrap' ),
-    'section'     => 'colors',
-    'settings'    => 'shoestrap_text_variation',
-    'type'        => 'select',
-    'priority'    => 1,
-    'choices'     => array(
-      'dark'      => __( 'Dark', 'shoestrap' ),
-      'light'     => __( 'Light', 'shoestrap' ),
-    ),
+  // Links color
+  $wp_customize->add_control( new WP_Customize_Color_Control(
+    $wp_customize,
+    'shoestrap_background_color',
+    array(
+      'label'     => 'Background Color',
+      'section'   => 'colors',
+      'settings'  => 'shoestrap_background_color',
+      'priority'  => 1
+    )
   ));
   
   // Links color
