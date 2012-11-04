@@ -1,7 +1,7 @@
 <?php
 
 define( 'SHOESTRAP_STORE_URL',  'http://bootstrap-commerce.com/downloads' );
-define( 'SHOESTRAP_THEME_NAME', 'Shoestrap Child Version' );
+define( 'SHOESTRAP_THEME_NAME', 'Shoestrap ( Roots Child Theme )' );
 
 // retrieve our license key from the DB
 $license_key = trim( get_option( 'shoestrap_child_license_key' ) );
