@@ -34,7 +34,7 @@ function shoestrap_register_controls( $wp_customize ){
     'type'        => 'select',
     'priority'    => 1,
     'choices'     => array(
-      'header'    => __( 'Header', 'shoestrap' ),
+      'header'    => __( 'Extra Header Area', 'shoestrap' ),
       'navbar'    => __( 'NavBar', 'shoestrap' ),
     ),
   ));
