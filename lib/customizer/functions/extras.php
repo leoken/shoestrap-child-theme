@@ -57,34 +57,16 @@ function shoestrap_adjust_brightness( $hex, $steps ) {
   return '#'.$r_hex.$g_hex.$b_hex;
 }
 
-/*
- * Customizer preview function
+/**
+ * Bind JS handlers to make Theme Customizer preview reload changes asynchronously.
+ *
  */
-function shoestrap_customize_preview() { ?>
-  <script type="text/javascript">
-    ( function( $ ){
-      // the blogname
-      wp.customize( 'blogname', function( value ) {
-        value.bind( function( to ) {
-          $( 'a.brand' ).html(to);
-        });
-      });
-      
-      //the Header Region Background Color
-      wp.customize( 'shoestrap_header_backgroundcolor', function( value ) {
-        value.bind( function( to ) {
-          $( '.logo-wrapper' ).css( 'background', to ? '#' + to : '' );
-        });
-      });
-    
-      //the Header Region Background Color
-      wp.customize( 'background_color', function( value ) {
-        value.bind( function( to ) {
-          $( '#wrap' ).css( 'background', to ? '#' + to : '' );
-        });
-      });
-    
-    } )( jQuery )
-  </script>
-    <?php
+function shoestrap_customize_preview_js( $wp_customize ) {
+  $wp_customize -> get_setting( 'blogname' ) -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'shoestrap_hero_title' ) -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'shoestrap_hero_content' ) -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'shoestrap_hero_cta_text' ) -> transport = 'postMessage';
+  
+  wp_enqueue_script( 'shoestrap-customizer', get_stylesheet_directory_uri() . '/lib/customizer/js/theme-customizer.js', array( 'customize-preview' ) );
 }
+add_action( 'customize_preview_init', 'shoestrap_customize_preview_js' );
