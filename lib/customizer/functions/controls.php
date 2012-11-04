@@ -28,7 +28,7 @@ function shoestrap_register_controls( $wp_customize ){
  
  // Header mode (Header/Navbar)
   $wp_customize->add_control( 'shoestrap_header_mode', array(
-    'label'       => __( 'Branding Mode (No preview)', 'shoestrap' ),
+    'label'       => __( 'Branding Mode', 'shoestrap' ),
     'section'     => 'shoestrap_header',
     'settings'    => 'shoestrap_header_mode',
     'type'        => 'select',
@@ -89,7 +89,7 @@ function shoestrap_register_controls( $wp_customize ){
   
   // Show/Hide the login link
   $wp_customize->add_control( 'shoestrap_header_loginlink', array(
-    'label'       => __( 'Show Login/Logout Link (No preview)', 'shoestrap' ),
+    'label'       => __( 'Show Login/Logout Link', 'shoestrap' ),
     'section'     => 'shoestrap_header',
     'settings'    => 'shoestrap_header_loginlink',
     'type'        => 'select',
