@@ -406,9 +406,11 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 2,
   )));
 
-  // Preview extras
-  if ( $wp_customize->is_preview() && ! is_admin() ) {
-    add_action( 'wp_footer', 'shoestrap_customize_preview', 21);
-  }
+  $wp_customize -> get_setting( 'blogname' )                -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'shoestrap_hero_title' )    -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'shoestrap_hero_content' )  -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'shoestrap_hero_cta_text' ) -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'shoestrap_hero_cta_text' ) -> transport = 'postMessage';
+  $wp_customize -> get_setting( 'background_color' )        -> transport = 'postMessage';
 }
 add_action( 'customize_register', 'shoestrap_register_controls' );

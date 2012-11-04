@@ -61,12 +61,7 @@ function shoestrap_adjust_brightness( $hex, $steps ) {
  * Bind JS handlers to make Theme Customizer preview reload changes asynchronously.
  *
  */
-function shoestrap_customize_preview_js( $wp_customize ) {
-  $wp_customize -> get_setting( 'blogname' ) -> transport = 'postMessage';
-  $wp_customize -> get_setting( 'shoestrap_hero_title' ) -> transport = 'postMessage';
-  $wp_customize -> get_setting( 'shoestrap_hero_content' ) -> transport = 'postMessage';
-  $wp_customize -> get_setting( 'shoestrap_hero_cta_text' ) -> transport = 'postMessage';
-  
+function shoestrap_customize_preview( $wp_customize ) {
   wp_enqueue_script( 'shoestrap-customizer', get_stylesheet_directory_uri() . '/lib/customizer/js/theme-customizer.js', array( 'customize-preview' ) );
 }
-add_action( 'customize_preview_init', 'shoestrap_customize_preview_js' );
+add_action( 'customize_preview_init', 'shoestrap_customize_preview' );
