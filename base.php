@@ -22,7 +22,7 @@
   <div id="wrap" class="container" role="document">
     <?php do_action('shoestrap_pre_content'); ?>
     <div id="content" class="row">
-      <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && roots_display_sidebar() ) { ?>
+      <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) ) { ?>
         <div class="m_p_wrap">
       <?php } ?>
       <?php do_action('shoestrap_pre_main'); ?>
@@ -31,7 +31,7 @@
       </div>
       <?php do_action('shoestrap_after_main'); ?>
       <?php if (roots_display_sidebar()) : ?>
-        <?php if ( in_array ( $layout, array ( 'mps', 'pms', 'smp', 'spm' ) ) && roots_display_sidebar() ) { ?>
+        <?php if ( !in_array ( $layout, array ( 'm', 'ms', 'sm' ) ) ) { ?>
           <aside id="sidebar" class="<?php echo roots_sidebar_class(); ?>" role="complementary">
             <?php do_action('shoestrap_pre_sidebar'); ?>
             <?php get_template_part('templates/primary-sidebar'); ?>
