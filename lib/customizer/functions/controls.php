@@ -119,23 +119,31 @@ function shoestrap_register_controls( $wp_customize ){
     ),
   ));
   
-  // Sidebar: left/Right/Hidden
-  $wp_customize->add_control( 'shoestrap_aside_layout', array(
-    'label'       => __( 'Sidebar', 'shoestrap' ),
+  // Layout selection
+  $wp_customize->add_control( 'shoestrap_layout', array(
+    'label'       => __( 'Layout', 'shoestrap' ),
     'section'     => 'shoestrap_layout',
-    'settings'    => 'shoestrap_aside_layout',
+    'settings'    => 'shoestrap_layout',
     'type'        => 'select',
     'priority'    => 2,
     'choices'     => array(
-      'right'     => __( 'Right', 'shoestrap' ),
-      'left'      => __( 'Left', 'shoestrap' ),
-      'hide'      => __( 'Hide', 'shoestrap' ),
+      'm'         => __( 'Main only', 'shoestrap' ),
+      'mp'        => __( 'Main-Primary', 'shoestrap' ),
+      'pm'        => __( 'Primary-Main', 'shoestrap' ),
+      'ms'        => __( 'Main-Secondary', 'shoestrap' ),
+      'sm'        => __( 'Secondary-Main', 'shoestrap' ),
+      'mps'       => __( 'Main-Primary-Secondary', 'shoestrap' ),
+      'msp'       => __( 'Main-Secondary-Primary', 'shoestrap' ),
+      'pms'       => __( 'Primary-Main-Secondary', 'shoestrap' ),
+      'psm'       => __( 'Primary-Secondary-Main', 'shoestrap' ),
+      'smp'       => __( 'Secondary-Main-Primary', 'shoestrap' ),
+      'spm'       => __( 'Secondary-Primary-Main', 'shoestrap' ),
     ),
   ));
   
-  // Responsive/Fixed-Width layout
+  // Primary Sidebar width
   $wp_customize->add_control( 'shoestrap_aside_width', array(
-    'label'       => __( 'Sidebar Width', 'shoestrap' ),
+    'label'       => __( 'Primary Sidebar Width', 'shoestrap' ),
     'section'     => 'shoestrap_layout',
     'settings'    => 'shoestrap_aside_width',
     'type'        => 'select',
@@ -146,6 +154,20 @@ function shoestrap_register_controls( $wp_customize ){
       '4'         => __( '4/12', 'shoestrap' ),
       '5'         => __( '5/12', 'shoestrap' ),
       '6'         => __( '6/12', 'shoestrap' ),
+    ),
+  ));
+  
+  // Secondary Sidebar width
+  $wp_customize->add_control( 'shoestrap_secondary_width', array(
+    'label'       => __( 'Secondary Sidebar Width', 'shoestrap' ),
+    'section'     => 'shoestrap_layout',
+    'settings'    => 'shoestrap_secondary_width',
+    'type'        => 'select',
+    'priority'    => 5,
+    'choices'     => array(
+      '2'         => __( '2/12', 'shoestrap' ),
+      '3'         => __( '3/12', 'shoestrap' ),
+      '4'         => __( '4/12', 'shoestrap' ),
     ),
   ));
   
