@@ -16,10 +16,10 @@ function shoestrap_text_css() {
     a.btn{ color: #333; }
     a.btn-primary, a.btn-info, a.btn-success, a.btn-danger, a.btn-inverse, a.btn-warning{ color: #fff; }
     <?php
-    if ( shoestrap_get_brightness( $background_color ) <= 100 ) { ?>
-      #wrap { color: #f7f7f7; }
+    if ( shoestrap_get_brightness( $background_color ) >= 100 ) { ?>
+      #wrap { color: #111; }
     <?php } else { ?>
-      #wrap { color: #333; }
+      #wrap { color: #f7f7f7; }
     <?php } ?>
   </style>
 
