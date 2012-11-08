@@ -142,7 +142,6 @@ function shoestrap_sidebars_positioning_css() {
   } elseif ( $shoestrap_layout == 'spm' ) {
     $css = '.m_p_wrap, #main{float: right;}';
   } else {
-    $css = '';
   } ?>
   <style> <?php echo $css; ?> </style>
   <?php
