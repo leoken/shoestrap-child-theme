@@ -171,7 +171,7 @@ function shoestrap_register_controls( $wp_customize ){
     ),
   ));
   
-  // Secondary Sidebar width
+  // Show sidebars on the Home Page
   $wp_customize->add_control( 'shoestrap_sidebar_on_front', array(
     'label'       => __( 'Show sidebars on the Home Page', 'shoestrap' ),
     'section'     => 'shoestrap_layout',
