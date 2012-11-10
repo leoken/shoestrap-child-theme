@@ -63,5 +63,6 @@ function shoestrap_adjust_brightness( $hex, $steps ) {
  */
 function shoestrap_customize_preview( $wp_customize ) {
   wp_enqueue_script( 'shoestrap-customizer', get_stylesheet_directory_uri() . '/lib/customizer/js/theme-customizer.js', array( 'customize-preview' ) );
+  wp_enqueue_script( 'shoestrap-customizer', get_stylesheet_directory_uri() . '/lib/customizer/sharrre/jquery.sharrre.min.js', array('jquery'), false, true );
 }
 add_action( 'customize_preview_init', 'shoestrap_customize_preview' );
