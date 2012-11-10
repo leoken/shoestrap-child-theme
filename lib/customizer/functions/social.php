@@ -43,3 +43,15 @@ function shoestrap_social_links( $network = '' ) {
     <li class="social-networks"><a href="<?php echo $pinterest_link; ?>" target="_blank"><i class="icon-pinterest-sign"></i></a></li>
   <?php }
 }
+
+function shoestrap_theme_enqueue_scripts() {
+  //sharrre, social share 
+  wp_enqueue_script( 'shoestrap-sharrre', get_stylesheet_directory_uri() . '/lib/customizer/sharrre/jquery.sharrre.min.js', array( 'jquery' ), false, true );
+  
+  //Inject variable values in socialshare.js
+  wp_localize_script( 'theme-script', 'shoestrapScript', array(
+    'sharrrephp'   => get_stylesheet_directory_uri() . '/lib/customizer/sharrre/sharrre.php',
+    'sharehtml'    => apply_filters('shoestrap_share_html', '<a class="box" href="#"><div class="share"><span>' . __('share', 'shoestrap') . '</span></div><div class="count" href="#">{total}</div></a>')
+  ));
+}
+add_action('wp_enqueue_scripts', 'shoestrap_theme_enqueue_scripts');
