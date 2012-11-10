@@ -41,9 +41,6 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_facebook_on_posts',         'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_twitter_on_posts',          'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_gplus_on_posts',            'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_digg_on_posts',             'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_delicious_on_posts',        'default' => '' );
-  $settings[] = array( 'slug' => 'shoestrap_stumbleupon_on_posts',      'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_linkedin_on_posts',         'default' => '' );
   $settings[] = array( 'slug' => 'shoestrap_pinterest_on_posts',        'default' => '' );  
   $settings[] = array( 'slug' => 'shoestrap_buttons_color',             'default' => '#0066bb' );

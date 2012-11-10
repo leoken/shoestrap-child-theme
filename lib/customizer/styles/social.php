@@ -4,14 +4,11 @@ function shoestrap_social_share_styles() {
   $googleplus   = get_theme_mod( 'shoestrap_gplus_on_posts' );
   $facebook     = get_theme_mod( 'shoestrap_facebook_on_posts' );
   $twitter      = get_theme_mod( 'shoestrap_twitter_on_posts' );
-  $digg         = get_theme_mod( 'shoestrap_digg_on_posts' );
-  $delicious    = get_theme_mod( 'shoestrap_delicious_on_posts' );
-  $stumbleupon  = get_theme_mod( 'shoestrap_stumbleupon_on_posts' );
   $linkedin     = get_theme_mod( 'shoestrap_linkedin_on_posts' );
   $pinterest    = get_theme_mod( 'shoestrap_pinterest_on_posts' );
   
   // The number of networks.
-  $networks_nr = $googleplus + $facebook + $twitter + $digg + $delicious + $stumbleupon + $linkedin + $pinterest;
+  $networks_nr = $googleplus + $facebook + $twitter + $linkedin + $pinterest;
 
   $btn_color = get_theme_mod( 'shoestrap_buttons_color' );
 

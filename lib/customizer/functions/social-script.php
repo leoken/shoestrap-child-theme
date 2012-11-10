@@ -4,21 +4,12 @@ function shoestrap_social_sharrre_script() {
   $googleplus   = get_theme_mod( 'shoestrap_gplus_on_posts' );
   $facebook     = get_theme_mod( 'shoestrap_facebook_on_posts' );
   $twitter      = get_theme_mod( 'shoestrap_twitter_on_posts' );
-  $digg         = get_theme_mod( 'shoestrap_digg_on_posts' );
-  $delicious    = get_theme_mod( 'shoestrap_delicious_on_posts' );
-  $stumbleupon  = get_theme_mod( 'shoestrap_stumbleupon_on_posts' );
   $linkedin     = get_theme_mod( 'shoestrap_linkedin_on_posts' );
   $pinterest    = get_theme_mod( 'shoestrap_pinterest_on_posts' );
   
-  // The number of networks.
-  $networks_nr = $googleplus + $facebook + $twitter + $digg + $delicious + $stumbleupon + $linkedin + $pinterest;
-
   if ( $googleplus  == 1 ) { $googleplus  = 'true'; } else { $googleplus  = 'false'; }
   if ( $facebook    == 1 ) { $facebook    = 'true'; } else { $facebook    = 'false'; }
   if ( $twitter     == 1 ) { $twitter     = 'true'; } else { $twitter     = 'false'; }
-  if ( $digg        == 1 ) { $digg        = 'true'; } else { $digg        = 'false'; }
-  if ( $delicious   == 1 ) { $delicious   = 'true'; } else { $delicious   = 'false'; }
-  if ( $stumbleupon == 1 ) { $stumbleupon = 'true'; } else { $stumbleupon = 'false'; }
   if ( $linkedin    == 1 ) { $linkedin    = 'true'; } else { $linkedin    = 'false'; }
   if ( $pinterest   == 1 ) { $pinterest   = 'true'; } else { $pinterest   = 'false'; }
   
@@ -33,6 +24,9 @@ function shoestrap_social_sharrre_script() {
   if ( $googleplus == 'true' ) {
     $template .= '<a href="#" class="googleplus icon-google-plus"></a>';
   }
+  if ( $linkedin == 'true' ) {
+    $template .= '<a href="#" class="linkedin icon-linkedin"></a>';
+  }
   if ( $pinterest == 'true' ) {
     $template .= '<a href="#" class="pinterest icon-pinterest"></a>';
   }
@@ -46,9 +40,6 @@ function shoestrap_social_sharrre_script() {
           googlePlus:   <?php echo $googleplus ?>,
           facebook:     <?php echo $facebook ?>,
           twitter:      <?php echo $twitter ?>,
-          digg:         <?php echo $digg ?>,
-          delicious:    <?php echo $delicious ?>,
-          stumbleupon:  <?php echo $stumbleupon ?>,
           linkedin:     <?php echo $linkedin ?>,
           pinterest:    <?php echo $pinterest ?>
         },
@@ -71,6 +62,10 @@ function shoestrap_social_sharrre_script() {
           <?php } if ( $pinterest == 'true' ) { ?>
             $(api.element).on('click', '.pinterest', function() {
               api.openPopup('pinterest');
+            });
+          <?php } if ( $linkedin == 'true' ) { ?>
+            $(api.element).on('click', '.linkedin', function() {
+              api.openPopup('linkedin');
             });
           <?php } ?>
         }

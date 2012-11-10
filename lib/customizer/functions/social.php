@@ -44,8 +44,9 @@ function shoestrap_social_links( $network = '' ) {
   <?php }
 }
 
-function shoestrap_social_share_template( $id ) { ?>
-  <div class="shareme" data-url="<?php echo get_permalink( $id ); ?>" data-text="<?php echo get_the_title( $id ); ?> "></div>
+add_action( 'shoestrap_pre_entry_meta', 'shoestrap_social_share_template' );
+function shoestrap_social_share_template() { ?>
+  <div class="shareme clearfix" data-url="<?php echo get_permalink( $post->ID ); ?>" data-text="<?php echo get_the_title( $post->ID ); ?> "></div>
   <?php
 }
 

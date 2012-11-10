@@ -466,33 +466,6 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 9,
   ));
 
-  // Digg share buttons on posts
-  $wp_customize->add_control( 'shoestrap_digg_on_posts', array(
-    'label'       => __( 'Share Buttons on Posts: Digg', 'shoestrap' ),
-    'section'     => 'shoestrap_social',
-    'settings'    => 'shoestrap_digg_on_posts',
-    'type'        => 'checkbox',
-    'priority'    => 10,
-  ));
-
-  // StumbeUpon share buttons on posts
-  $wp_customize->add_control( 'shoestrap_stumbleupon_on_posts', array(
-    'label'       => __( 'Share Buttons on Posts: StumbleUpon', 'shoestrap' ),
-    'section'     => 'shoestrap_social',
-    'settings'    => 'shoestrap_stumbleupon_on_posts',
-    'type'        => 'checkbox',
-    'priority'    => 11,
-  ));
-
-  // Delicious share buttons on posts
-  $wp_customize->add_control( 'shoestrap_delicious_on_posts', array(
-    'label'       => __( 'Share Buttons on Posts: Delicious', 'shoestrap' ),
-    'section'     => 'shoestrap_social',
-    'settings'    => 'shoestrap_delicious_on_posts',
-    'type'        => 'checkbox',
-    'priority'    => 12,
-  ));
-
 /*
  * ADVANCED SECTION
  */
