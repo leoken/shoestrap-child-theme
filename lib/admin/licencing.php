@@ -15,31 +15,17 @@ $edd_updater = new Shoestrap_Theme_Updater( array(
   'author'          => 'Aristeides Stathopoulos'  // author of this plugin
 ));
 
-add_action( 'admin_menu', 'shoestrap_child_license_menu' );
-function shoestrap_child_license_menu() {
-  add_theme_page( 'Shoestrap Theme License', 'Shoestrap Theme License', 'manage_options', 'shoestrap_child-license', 'shoestrap_child_license_page' );
-}
-
+add_action( 'shoestrap_admin_content', 'shoestrap_child_license_page', 10 );
 function shoestrap_child_license_page() {
   $license  = get_option( 'shoestrap_child_license_key' );
   $status   = get_option( 'shoestrap_child_license_key_status' );
   ?>
-  <div class="wrap">
-    <h2><?php _e( 'Shoestrap Theme License' ); ?></h2>
     <form method="post" action="options.php">
     
       <?php settings_fields( 'shoestrap_child_license' ); ?>
       
       <table class="form-table">
         <tbody>
-          <tr>
-            <td colspan="2">
-              <strong>This theme is an OpenSource project and is provided without any charge.</strong><br />
-              If you wish to enable automatic updates, you can visit <a href="http://bootstrap-commerce.com/downloads/downloads/shoestrap-child-version/" target="_blank">this page</a>
-              and get a free licence. By entering and <strong>activating</strong> it, whenever a new version is available you will be notified in your dashboard.
-              If you wish to help this project, you can do so by helping out on the <a href="https://github.com/aristath/shoestrap" target="_blank">github project page</a> 
-            </td>
-          </tr>
           <tr valign="top"> 
             <th scope="row" valign="top">
               <?php _e( 'License Key' ); ?>
@@ -66,7 +52,7 @@ function shoestrap_child_license_page() {
           <?php } ?>
         </tbody>
       </table>  
-      <?php submit_button(); ?>
+      <?php submit_button('Save theme licence'); ?>
     
     </form>
   <?php
