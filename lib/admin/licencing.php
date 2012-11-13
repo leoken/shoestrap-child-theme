@@ -18,9 +18,12 @@ $edd_updater = new Shoestrap_Theme_Updater( array(
 
 add_action( 'shoestrap_admin_content', 'shoestrap_child_license_page', 10 );
 function shoestrap_child_license_page() {
-  $license  = get_option( 'shoestrap_child_license_key' );
-  $status   = get_option( 'shoestrap_child_license_key_status' );
-  $submit_text = __( 'Save & activate theme licence', 'shoestrap' )
+  $license      = get_option( 'shoestrap_child_license_key' );
+  $status       = get_option( 'shoestrap_child_license_key_status' );
+  $submit_text  = __( 'Save & activate theme licence', 'shoestrap' );
+  $current_url  = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $customizeurl = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
+
   ?>
   <div class="postbox">
     <h3 class="hndle" style="padding: 7px 10px;"><span><?php _e( 'Shoestrap Child theme Licence Key', 'shoestrap' ); ?></span></h3>
@@ -31,7 +34,7 @@ function shoestrap_child_license_page() {
       and get a free licence. By entering and <strong>activating</strong> it, whenever a new version is available you will be notified in your dashboard.
       If you wish to help this project, you can do so by helping out on the <a href="https://github.com/aristath/shoestrap" target="_blank">github project page</a> 
       <br>
-      <p>To configure the options for this theme, please visit the <a href="<?php  echo $href ?>">Customizer</a></p>
+      <p>To configure the options for this theme, please visit the <a href="<?php  echo $customizeurl ?>">Customizer</a></p>
       
       <form method="post" action="options.php">
         <?php settings_fields( 'shoestrap_child_license' ); ?>
