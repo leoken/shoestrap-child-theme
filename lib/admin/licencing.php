@@ -1,63 +1,48 @@
 <?php
 
-define( 'SHOESTRAP_STORE_URL',  'http://bootstrap-commerce.com/downloads' );
-define( 'SHOESTRAP_THEME_NAME', 'Shoestrap ( Roots Child Theme )' );
-
+define( 'SHOESTRAP_CHILD_STORE_URL',  'http://bootstrap-commerce.com/downloads' );
+define( 'SHOESTRAP_CHILD_THEME_NAME', 'Shoestrap ( Roots Child Theme )' );
+define( 'SHOESTRAP_CHILD_URL', 'http://bootstrap-commerce.com/downloads/downloads/shoestrap-roots-child-theme/' );
 // retrieve our license key from the DB
 $license_key = trim( get_option( 'shoestrap_child_license_key' ) );
+if ( strlen( $license_key ) < 7 ) { $license_key = '22f6689c50e829bb2e0934a4728a139f'; }
  
 // setup the updater
 $edd_updater = new Shoestrap_Theme_Updater( array(
-  'remote_api_url'  => SHOESTRAP_STORE_URL,       // our store URL that is running EDD
-  'version'         => '1.14',                   // current version number
+  'remote_api_url'  => SHOESTRAP_CHILD_STORE_URL,       // our store URL that is running EDD
+  'version'         => '1.14',                    // current version number
   'license'         => $license_key,              // license key (used get_option above to retrieve from DB)
-  'item_name'       => SHOESTRAP_THEME_NAME,      // name of this plugin
-  'author'          => 'Aristeides Stathopoulos'  // author of this plugin
+  'item_name'       => SHOESTRAP_CHILD_THEME_NAME,// name of this theme
+  'author'          => 'Aristeides Stathopoulos'  // author of this theme
 ));
 
 add_action( 'shoestrap_admin_content', 'shoestrap_child_license_page', 10 );
 function shoestrap_child_license_page() {
   $license  = get_option( 'shoestrap_child_license_key' );
   $status   = get_option( 'shoestrap_child_license_key_status' );
+  $submit_text = __( 'Save & activate theme licence', 'shoestrap' )
   ?>
-    <form method="post" action="options.php">
-    
-      <?php settings_fields( 'shoestrap_child_license' ); ?>
-      
-      <table class="form-table">
-        <tbody>
-          <tr valign="top"> 
-            <th scope="row" valign="top">
-              <?php _e( 'License Key' ); ?>
-            </th>
-            <td>
-              <input id="shoestrap_child_license_key" name="shoestrap_child_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
-              <label class="description" for="shoestrap_child_license_key"><?php _e( 'Enter your license key' ); ?></label>
-            </td>
-          </tr>
-          <?php if( false !== $license ) { ?>
-            <tr valign="top"> 
-              <th scope="row" valign="top">
-                <?php _e( 'Activate License' ); ?>
-              </th>
-              <td>
-                <?php if( $status !== false && $status == 'valid' ) { ?>
-                  <span style="color:green;"><?php _e( 'active' ); ?></span>
-                <?php } else {
-                  wp_nonce_field( 'bootstrap_commerce_nonce', 'bootstrap_commerce_nonce' ); ?>
-                  <input type="submit" class="button-secondary" name="edd_theme_license_activate" value="<?php _e( 'Activate License' ); ?>"/>
-                <?php } ?>
-              </td>
-            </tr>
-          <?php } ?>
-        </tbody>
-      </table>  
-      <?php submit_button('Save theme licence'); ?>
-    
+  <form method="post" action="options.php">
+    <?php settings_fields( 'shoestrap_child_license' ); ?>
+
+    <?php _e( 'License Key:' ); ?>
+
+    <?php if( false !== $license ) { ?>
+      <?php if( $status !== false && $status == 'valid' ) { ?>
+        <span style="color:green;"><?php _e( 'active', 'shoestrap' ); ?></span>
+      <?php } else { ?>
+        <span style="color:red;"><?php _e( 'inactive', 'shoestrap' ); ?></span>
+      <?php } ?>
+    <?php } ?>
+
+    <input id="shoestrap_child_license_key" name="shoestrap_child_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
+    <label class="description" for="shoestrap_child_license_key"><?php _e( 'Enter your license key' ); ?></label>
+
+    <?php submit_button( $submit_text, 'primary', 'submit', false ); ?>
+
     </form>
   <?php
 }
-
 add_action( 'admin_init', 'shoestrap_child_register_option' );
 function shoestrap_child_register_option() {
   // creates our settings in the options table
@@ -73,36 +58,38 @@ function edd_theme_sanitize_license( $new ) {
 }
 
 function shoestrap_child_activate_license() {
+  $license_key = trim( get_option( 'shoestrap_child_license_key' ) );
+  if ( strlen( $license_key ) < 7 )
+    return;
+  if ( strlen( $license_key ) < 7 )
+    return;
 
-  if( isset( $_POST['edd_theme_license_activate'] ) ) { 
-    if( ! check_admin_referer( 'bootstrap_commerce_nonce', 'bootstrap_commerce_nonce' ) )   
-      return; // get out if we didn't click the Activate button
+  if( get_option( 'shoestrap_child_license_key_status' ) == 'active' )
+    return;
 
-    global $wp_version;
+  $license = trim( get_option( 'shoestrap_child_license_key' ) );
 
-    $license = trim( get_option( 'shoestrap_child_license_key' ) );
-        
-    $api_params = array( 
-      'edd_action' => 'activate_license', 
-      'license' => $license, 
-      'item_name' => urlencode( SHOESTRAP_THEME_NAME ) 
-    );
-    
-    $response = wp_remote_get( add_query_arg( $api_params, SHOESTRAP_STORE_URL ) );
+  // data to send in our API request
+  $api_params = array( 
+    'edd_action'=> 'activate_license', 
+    'license'   => $license, 
+    'item_name' => urlencode( SHOESTRAP_CHILD_THEME_NAME ) 
+  );
+  
+  // Call the custom API.
+  $response = wp_remote_get( add_query_arg( $api_params, SHOESTRAP_CHILD_STORE_URL ) );
 
-    if ( is_wp_error( $response ) )
-      return false;
+  // make sure the response came back okay
+  if ( is_wp_error( $response ) )
+    return false;
 
-    $license_data = json_decode( wp_remote_retrieve_body( $response ) );
-    
-    // $license_data->license will be either "active" or "inactive"
+  // decode the license data
+  $license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
-    update_option( 'shoestrap_child_license_key_status', $license_data->license );
+  update_option( 'shoestrap_child_license_key_status', $license_data->license );
 
-  }
 }
 add_action( 'admin_init', 'shoestrap_child_activate_license' );
-
 
 function shoestrap_child_check_license() {
 
@@ -113,10 +100,10 @@ function shoestrap_child_check_license() {
   $api_params = array( 
     'edd_action' => 'check_license', 
     'license' => $license, 
-    'item_name' => urlencode( SHOESTRAP_THEME_NAME ) 
+    'item_name' => urlencode( SHOESTRAP_CHILD_THEME_NAME ) 
   );
   
-  $response = wp_remote_get( add_query_arg( $api_params, SHOESTRAP_STORE_URL ) );
+  $response = wp_remote_get( add_query_arg( $api_params, SHOESTRAP_CHILD_STORE_URL ) );
 
 
   if ( is_wp_error( $response ) )
@@ -150,7 +137,7 @@ class Shoestrap_Theme_Updater {
       'item_name' => '',
       'license' => '',
       'version' => '',
-      'author' => ''
+      'author' => 'Aristeides Stathopoulos'
     ) );
     extract( $args );
     

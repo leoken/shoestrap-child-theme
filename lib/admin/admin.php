@@ -3,7 +3,7 @@
 // Adds the Admin page for Shoestrap
 add_action( 'admin_menu', 'shoestrap_child_admin_page' );
 function shoestrap_child_admin_page() {
-  add_theme_page( 'Shoestrap Theme License', 'Shoestrap Theme License', 'manage_options', 'shoestrap_child-license', 'shoestrap_child_admin_page_content' );
+  add_theme_page( 'Shoestrap', 'Shoestrap', 'manage_options', 'shoestrap_child-license', 'shoestrap_child_admin_page_content' );
 }
 
 function shoestrap_child_admin_page_content() {
