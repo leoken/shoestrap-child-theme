@@ -25,7 +25,7 @@ add_action( 'shoestrap_admin_content', 'shoestrap_child_license_page', 10 );
 function shoestrap_child_license_page() {
   $license      = get_option( 'shoestrap_child_license_key' );
   $status       = get_option( 'shoestrap_child_license_key_status' );
-  $submit_text  = __( 'Save & activate theme licence', 'shoestrap' );
+  $submit_text  = __( 'Save & activate licence', 'shoestrap' );
   $current_url  = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
   $customizeurl = add_query_arg( 'url', urlencode( $current_url ), wp_customize_url() );
 
@@ -44,11 +44,11 @@ function shoestrap_child_license_page() {
       <form method="post" action="options.php">
         <?php settings_fields( 'shoestrap_child_license' ); ?>
     
-        <?php _e( 'License Key:' ); ?>
+        <?php _e( 'License Key:', 'shoestrap' ); ?>
     
         <input id="shoestrap_child_license_key" name="shoestrap_child_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
         <label class="description" for="shoestrap_child_license_key">
-          <?php _e( 'Enter your license key' ); ?>
+          <?php _e( 'Enter your license key', 'shoestrap' ); ?>
           (
           <?php if( false !== $license ) { ?>
             <?php if( $status !== false && $status == 'valid' ) { ?>
