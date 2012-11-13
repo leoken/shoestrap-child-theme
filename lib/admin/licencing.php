@@ -22,25 +22,42 @@ function shoestrap_child_license_page() {
   $status   = get_option( 'shoestrap_child_license_key_status' );
   $submit_text = __( 'Save & activate theme licence', 'shoestrap' )
   ?>
-  <form method="post" action="options.php">
-    <?php settings_fields( 'shoestrap_child_license' ); ?>
+  <div class="postbox">
+    <h3 class="hndle" style="padding: 7px 10px;"><span><?php _e( 'Shoestrap Child theme Licence Key', 'shoestrap' ); ?></span></h3>
+    <div class="inside">
 
-    <?php _e( 'License Key:' ); ?>
-
-    <?php if( false !== $license ) { ?>
-      <?php if( $status !== false && $status == 'valid' ) { ?>
-        <span style="color:green;"><?php _e( 'active', 'shoestrap' ); ?></span>
-      <?php } else { ?>
-        <span style="color:red;"><?php _e( 'inactive', 'shoestrap' ); ?></span>
-      <?php } ?>
-    <?php } ?>
-
-    <input id="shoestrap_child_license_key" name="shoestrap_child_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
-    <label class="description" for="shoestrap_child_license_key"><?php _e( 'Enter your license key' ); ?></label>
-
-    <?php submit_button( $submit_text, 'primary', 'submit', false ); ?>
-
-    </form>
+      <strong>This theme is an OpenSource project and is provided free of charge.</strong><br />
+      If you wish to enable automatic updates, you can visit <a href="http://bootstrap-commerce.com/downloads/downloads/shoestrap-child-version/" target="_blank">this page</a>
+      and get a free licence. By entering and <strong>activating</strong> it, whenever a new version is available you will be notified in your dashboard.
+      If you wish to help this project, you can do so by helping out on the <a href="https://github.com/aristath/shoestrap" target="_blank">github project page</a> 
+      <br>
+      <p>To configure the options for this theme, please visit the <a href="<?php  echo $href ?>">Customizer</a></p>
+      
+      <form method="post" action="options.php">
+        <?php settings_fields( 'shoestrap_child_license' ); ?>
+    
+        <?php _e( 'License Key:' ); ?>
+    
+        <input id="shoestrap_child_license_key" name="shoestrap_child_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
+        <label class="description" for="shoestrap_child_license_key">
+          <?php _e( 'Enter your license key' ); ?>
+          (
+          <?php if( false !== $license ) { ?>
+            <?php if( $status !== false && $status == 'valid' ) { ?>
+              <span style="color:green;"><?php _e( 'active', 'shoestrap' ); ?></span>
+            <?php } else { ?>
+              <span style="color:red;"><?php _e( 'inactive', 'shoestrap' ); ?></span>
+            <?php } ?>
+          <?php } ?>
+          )
+          
+        </label>
+    
+        <?php submit_button( $submit_text ); ?>
+    
+      </form>
+    </div>
+  </div>
   <?php
 }
 add_action( 'admin_init', 'shoestrap_child_register_option' );

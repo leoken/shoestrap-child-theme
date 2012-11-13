@@ -13,16 +13,7 @@ function shoestrap_child_admin_page_content() {
 
   <div class="wrap">
     <h2><?php _e( 'Shoestrap Administration Page' ); ?></h2>
-    
-    <strong>This theme is an OpenSource project and is provided free of charge.</strong><br />
-    If you wish to enable automatic updates, you can visit <a href="http://bootstrap-commerce.com/downloads/downloads/shoestrap-child-version/" target="_blank">this page</a>
-    and get a free licence. By entering and <strong>activating</strong> it, whenever a new version is available you will be notified in your dashboard.
-    If you wish to help this project, you can do so by helping out on the <a href="https://github.com/aristath/shoestrap" target="_blank">github project page</a> 
-    <br>
-    <p>To configure the options for this theme, please visit the <a href="<?php  echo $href ?>">Customizer</a></p>
-    
     <?php do_action( 'shoestrap_admin_content' ); ?>
-  
   </div>
   <?php
 }
