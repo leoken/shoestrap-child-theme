@@ -8,7 +8,7 @@
       </a>
       <?php if ( get_theme_mod( 'shoestrap_navbar_branding' ) != 0 ) { ?>
         <a class="brand" href="<?php echo home_url(); ?>/">
-          <?php navbar_brand(); ?>
+          <?php shoestrap_navbar_brand(); ?>
         </a>
       <?php } ?>
       <?php do_action('shoestrap_nav_top_left'); ?>
