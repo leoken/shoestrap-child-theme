@@ -24,6 +24,7 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_navbar_branding',           'default' => '1' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_logo',               'default' => '1' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_color',              'default' => '#ffffff' );
+  $settings[] = array( 'slug' => 'shoestrap_navbar_social',             'default' => '1' );
   
   // Extra Header Settings
   $settings[] = array( 'slug' => 'shoestrap_extra_branding',            'default' => $shoestrap_extra_branding );

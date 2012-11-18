@@ -90,7 +90,16 @@ function shoestrap_register_controls( $wp_customize ){
     'type'        => 'checkbox',
     'priority'    => 5,
   ));
-  
+
+  // Display NavBar Logo
+  $wp_customize->add_control( 'shoestrap_navbar_social', array(
+    'label'       => __( 'Display Social Links in the Navbar', 'shoestrap' ),
+    'section'     => 'shoestrap_navbar',
+    'settings'    => 'shoestrap_navbar_social',
+    'type'        => 'checkbox',
+    'priority'    => 6,
+  ));
+
 /*
  * HEADER SECTION
  */
