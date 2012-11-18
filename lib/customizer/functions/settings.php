@@ -31,6 +31,7 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_header_loginlink',          'default' => '1' );
   $settings[] = array( 'slug' => 'shoestrap_header_backgroundcolor',    'default' => '#0066bb' );
   $settings[] = array( 'slug' => 'shoestrap_header_textcolor',          'default' => '#ffffff' );
+  $settings[] = array( 'slug' => 'shoestrap_header_social',             'default' => '0' );
     
   // Layout Settings
   $settings[] = array( 'slug' => 'shoestrap_layout',                    'default' => 'mp' );

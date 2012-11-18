@@ -137,6 +137,15 @@ function shoestrap_register_controls( $wp_customize ){
     )
   ));
 
+ // Extra header on/off
+  $wp_customize->add_control( 'shoestrap_header_social', array(
+    'label'       => __( 'Display Social Links', 'shoestrap' ),
+    'section'     => 'shoestrap_header',
+    'settings'    => 'shoestrap_header_social',
+    'type'        => 'checkbox',
+    'priority'    => 5,
+  ));
+  
 /*
  * LAYOUT SECTION
  */
