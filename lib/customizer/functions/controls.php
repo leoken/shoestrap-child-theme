@@ -37,6 +37,17 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 1,
   ));
 
+  // Navbar background color
+  $wp_customize->add_control( new WP_Customize_Color_Control(
+    $wp_customize,
+    'shoestrap_navbar_color',
+    array(
+      'label'     => 'Navbar Color',
+      'section'   => 'shoestrap_navbar',
+      'settings'  => 'shoestrap_navbar_color',
+      'priority'  => 2
+    )
+  ));
   
   
 /*
@@ -92,18 +103,6 @@ function shoestrap_register_controls( $wp_customize ){
     )
   ));
 
-  // Navbar background color
-  $wp_customize->add_control( new WP_Customize_Color_Control(
-    $wp_customize,
-    'shoestrap_navbar_color',
-    array(
-      'label'     => 'Navbar Color',
-      'section'   => 'shoestrap_header',
-      'settings'  => 'shoestrap_navbar_color',
-      'priority'  => 5
-    )
-  ));
-  
   // Show/Hide the login link
   $wp_customize->add_control( 'shoestrap_header_loginlink', array(
     'label'       => __( 'Show Login/Logout Link', 'shoestrap' ),
