@@ -23,7 +23,22 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 function shoestrap_register_controls( $wp_customize ){
 
   $wp_customize->remove_control( 'background_color' );
-  
+
+/*
+ * LOGO SECTION
+ */
+  // Logo Image uploader
+  $wp_customize->add_control( new WP_Customize_Image_Control(
+    $wp_customize,
+    'shoestrap_logo_Image',
+    array(
+      'label'     => __( 'Logo Image', 'shoestrap' ),
+      'section'   => 'shoestrap_logo',
+      'settings'  => 'shoestrap_logo',
+      'priority'  => 2
+    )
+  ));
+
 /*
  * NAVBAR SECTION
  */  
@@ -37,7 +52,7 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 1,
   ));
 
-  // Display NavBar on Top
+  // Display NavBar Branding
   $wp_customize->add_control( 'shoestrap_navbar_branding', array(
     'label'       => __( 'Display Branding (Sitename or Logo)', 'shoestrap' ),
     'section'     => 'shoestrap_navbar',
@@ -46,7 +61,7 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 2,
   ));
 
-  // Display NavBar on Top
+  // Display NavBar Logo
   $wp_customize->add_control( 'shoestrap_navbar_logo', array(
     'label'       => __( 'Use Logo (if available) for branding', 'shoestrap' ),
     'section'     => 'shoestrap_navbar',
@@ -69,7 +84,7 @@ function shoestrap_register_controls( $wp_customize ){
   
   
 /*
- * HEADER AND BRANDING
+ * HEADER SECTION
  */
  
  // Header mode (Header/Navbar)
@@ -83,18 +98,6 @@ function shoestrap_register_controls( $wp_customize ){
       'header'    => __( 'Extra Header Area', 'shoestrap' ),
       'navbar'    => __( 'NavBar', 'shoestrap' ),
     ),
-  ));
-  
-  // Logo Image uploader
-  $wp_customize->add_control( new WP_Customize_Image_Control(
-    $wp_customize,
-    'shoestrap_logo_Image',
-    array(
-      'label'     => __( 'Logo Image', 'shoestrap' ),
-      'section'   => 'shoestrap_header',
-      'settings'  => 'shoestrap_logo',
-      'priority'  => 2
-    )
   ));
   
   // Header Background
