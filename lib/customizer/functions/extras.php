@@ -57,6 +57,14 @@ function shoestrap_adjust_brightness( $hex, $steps ) {
   return '#'.$r_hex.$g_hex.$b_hex;
 }
 
+add_action( 'wp', 'shoestrap_hide_navbar' );
+function shoestrap_hide_navbar() {
+  $navbar = get_theme_mod( 'shoestrap_navbar_top' );
+  if ( $navbar == 0 ) {
+    remove_theme_support( 'bootstrap-top-navbar' );
+  }
+}
+
 /**
  * Bind JS handlers to make Theme Customizer preview reload changes asynchronously.
  *
