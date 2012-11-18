@@ -82,12 +82,20 @@ function shoestrap_register_controls( $wp_customize ){
     )
   ));
   
+  // Show/Hide the login link
+  $wp_customize->add_control( 'shoestrap_header_loginlink', array(
+    'label'       => __( 'Show Login/Logout Link', 'shoestrap' ),
+    'section'     => 'shoestrap_navbar',
+    'settings'    => 'shoestrap_header_loginlink',
+    'type'        => 'checkbox',
+    'priority'    => 5,
+  ));
   
 /*
  * HEADER SECTION
  */
  
- // Header mode (Header/Navbar)
+ // Extra header on/off
   $wp_customize->add_control( 'shoestrap_extra_branding', array(
     'label'       => __( 'Display Extra Header', 'shoestrap' ),
     'section'     => 'shoestrap_header',
@@ -119,20 +127,6 @@ function shoestrap_register_controls( $wp_customize ){
       'priority'  => 4
     )
   ));
-
-  // Show/Hide the login link
-  $wp_customize->add_control( 'shoestrap_header_loginlink', array(
-    'label'       => __( 'Show Login/Logout Link', 'shoestrap' ),
-    'section'     => 'shoestrap_header',
-    'settings'    => 'shoestrap_header_loginlink',
-    'type'        => 'select',
-    'priority'    => 1,
-    'choices'     => array(
-      '1'         => __( 'Show', 'shoestrap' ),
-      '0'         => __( 'Hide', 'shoestrap' ),
-    ),
-  ));
-  
 
 /*
  * LAYOUT SECTION

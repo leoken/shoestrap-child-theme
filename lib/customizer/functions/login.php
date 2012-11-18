@@ -4,9 +4,9 @@
  * The login logo
  */
 function shoestrap_login_logo() {
-    if ( get_theme_mod( 'shoestrap_logo' ) ) {
-      echo( get_theme_mod( 'shoestrap_logo' ) );
-    }
+  if ( get_theme_mod( 'shoestrap_logo' ) ) {
+    echo( get_theme_mod( 'shoestrap_logo' ) );
+  }
 }
 
 /*
