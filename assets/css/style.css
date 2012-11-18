@@ -2849,9 +2849,6 @@ input[type="submit"].btn.btn-mini {
 #wrap {
   padding: 20px;
 }
-.logo-wrapper {
-  margin-top: -20px;
-}
 .logo-wrapper .logo {
   padding: 20px 0;
 }
@@ -2871,6 +2868,9 @@ input[type="submit"].btn.btn-mini {
 .logo-wrapper .nav-pills .open .dropdown-toggle,
 .logo-wrapper .nav > li.dropdown.open.active > a:hover {
   background: rgba(255,255,255,0.2);
+}
+.top-navbar .logo-wrapper {
+  margin-top: -20px;
 }
 .jumbotron {
   padding: 50px 0;
