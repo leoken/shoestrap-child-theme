@@ -10,6 +10,7 @@ function shoestrap_register_settings( $wp_customize ){
 
   $settings   = array();
   $settings[] = array( 'slug' => 'shoestrap_background_color',          'default' => $background_color );
+  $settings[] = array( 'slug' => 'shoestrap_navbar_top',                'default' => '1' );
   $settings[] = array( 'slug' => 'shoestrap_navbar_color',              'default' => '#ffffff' );
   $settings[] = array( 'slug' => 'shoestrap_layout',                    'default' => 'mp' );
   $settings[] = array( 'slug' => 'shoestrap_aside_affix',               'default' => 'normal' );

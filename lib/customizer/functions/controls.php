@@ -22,7 +22,23 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
  */
 function shoestrap_register_controls( $wp_customize ){
 
-  $wp_customize->remove_control( 'background_color' );  
+  $wp_customize->remove_control( 'background_color' );
+  
+/*
+ * NAVBAR SECTION
+ */  
+
+  // Display NavBar on Top
+  $wp_customize->add_control( 'shoestrap_navbar_top', array(
+    'label'       => __( 'Display NavBar on the top of the page', 'shoestrap' ),
+    'section'     => 'shoestrap_navbar',
+    'settings'    => 'shoestrap_navbar_top',
+    'type'        => 'checkbox',
+    'priority'    => 1,
+  ));
+
+  
+  
 /*
  * HEADER AND BRANDING
  */
