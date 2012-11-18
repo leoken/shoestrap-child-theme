@@ -16,3 +16,30 @@
     display: none;
   }
 }
+
+/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+@media (min-width: 980px) {
+  .subnav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+  }
+  .subnav-fixed .nav {
+    margin: 0 auto;
+  }
+  .subnav .nav > li:first-child > a,
+  .subnav .nav > li:first-child > a:hover {
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+  }
+  .subnav-fixed .navbar-inner{
+    border: 0 !important;
+  }
+  body.admin-bar .subnav-fixed{
+    top: 28px;
+  }
+}
