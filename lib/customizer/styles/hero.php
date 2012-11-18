@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Applies the selected styles to the hero area.
+ * 
+ * The call to action button styles are calculated using the phpless compiler
+ * and a portion of bootstrap's buttons.less file that has been pasted here.
+ */
 function shoestrap_css_hero() {
   $shoestrap_header_mode            = get_theme_mod( 'shoestrap_header_mode' );
   $shoestrap_hero_background_color  = get_theme_mod( 'shoestrap_hero_background_color' );

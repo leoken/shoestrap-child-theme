@@ -1,5 +1,8 @@
 <?php
 
+/*
+ * Applies the styles to the navbar.
+ */
 function shoestrap_navbar_css(){
   $header_bg_color  = get_theme_mod( 'shoestrap_header_backgroundcolor' );
   $navbar_color     = get_theme_mod( 'shoestrap_navbar_color' );
@@ -118,6 +121,11 @@ function shoestrap_navbar_css(){
 }
 add_action( 'wp_head', 'shoestrap_navbar_css', 199 );
 
+/*
+ * The below script allows our extra navbar
+ * to be fixed on the top of the page
+ * when users scroll down.
+ */
 function shoestrap_subnav_script() {
   $navbar     = get_theme_mod( 'shoestrap_extra_display_navigation' );
   $navbar_top = get_theme_mod( 'shoestrap_navbar_top' );
