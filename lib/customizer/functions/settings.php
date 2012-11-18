@@ -80,6 +80,9 @@ function shoestrap_register_settings( $wp_customize ){
   // Footer Settings
   $settings[] = array( 'slug' => 'shoestrap_footer_background_color',   'default' => '#ffffff' );
   
+  // Navigation Settings
+  $settings[] = array( 'slug' => 'shoestrap_extra_display_navigation',  'default' => '0' );
+  
   foreach( $settings as $setting ){
     $wp_customize->add_setting( $setting['slug'], array( 'default' => $setting['default'], 'type' => 'theme_mod', 'capability' => 'edit_theme_options' ) );
   }

@@ -528,6 +528,22 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 2,
   )));
 
+/*
+ * NAVIGATION
+ */
+ 
+  // Display NavBar Branding
+  $wp_customize->add_control( 'shoestrap_extra_display_navigation', array(
+    'label'       => __( 'Display extra Primary menu. This option is particularly useful in case you have disabled the top navbar
+                          but still want a navigation. This navigation will be added below the extra branding & hero regions 
+                          (just above the content area of your site)', 'shoestrap' ),
+    'section'     => 'nav',
+    'settings'    => 'shoestrap_extra_display_navigation',
+    'type'        => 'checkbox',
+    'priority'    => 1,
+  ));
+
+ 
   $wp_customize -> get_setting( 'blogname' )                -> transport = 'postMessage';
   $wp_customize -> get_setting( 'shoestrap_hero_title' )    -> transport = 'postMessage';
   $wp_customize -> get_setting( 'shoestrap_hero_content' )  -> transport = 'postMessage';
