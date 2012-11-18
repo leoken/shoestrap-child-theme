@@ -7,11 +7,6 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <?php if ( get_theme_mod( 'shoestrap_navbar_branding' ) != 0 ) { ?>
-          <a class="brand" href="<?php echo home_url(); ?>/">
-            <?php shoestrap_navbar_brand(); ?>
-          </a>
-        <?php } ?>
         <?php do_action('shoestrap_nav_top_left'); ?>
         <nav id="nav-main" class="nav-collapse" role="navigation">
           <?php
