@@ -1,7 +1,8 @@
 <?php
 
 /*
- * The login logo
+ * The login logo.
+ * Uses the logo uploaded by the user from the customizer.
  */
 function shoestrap_login_logo() {
   if ( get_theme_mod( 'shoestrap_logo' ) ) {
@@ -10,7 +11,7 @@ function shoestrap_login_logo() {
 }
 
 /*
- * Alters the login screen according to our customizer options
+ * Alters the login screen according to our customizer options.
  */
 function shoestrap_login_scripts() {
   $color                  = get_theme_mod( 'shoestrap_background_color' );

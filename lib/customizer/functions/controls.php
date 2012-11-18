@@ -25,8 +25,11 @@ function shoestrap_register_controls( $wp_customize ){
   $wp_customize->remove_control( 'background_color' );
 
 /*
- * LOGO SECTION
+ * LOGO
+ * 
+ * The below controls concern any logo functionality of our theme.
  */
+ 
   // Logo Image uploader
   $wp_customize->add_control( new WP_Customize_Image_Control(
     $wp_customize,
@@ -40,7 +43,12 @@ function shoestrap_register_controls( $wp_customize ){
   ));
 
 /*
- * NAVBAR SECTION
+ * NAVBAR
+ * 
+ * The NavBar section of our theme allows us to add or hide
+ * a Navbar on the top of our page and also to configure
+ * the way this navbar looks and behaves.
+ * 
  */  
 
   // Display NavBar on Top
@@ -91,7 +99,7 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 5,
   ));
 
-  // Display NavBar Logo
+  // Display NavBar Social links
   $wp_customize->add_control( 'shoestrap_navbar_social', array(
     'label'       => __( 'Display Social Links in the Navbar', 'shoestrap' ),
     'section'     => 'shoestrap_navbar',
@@ -101,7 +109,12 @@ function shoestrap_register_controls( $wp_customize ){
   ));
 
 /*
- * HEADER SECTION
+ * HEADER
+ * 
+ * The header section when enabled will go right below the top navbar.
+ * If we don't have a navbar, then the header section will be on the top of our pages.
+ * 
+ * It can be used to show the site's name or logo, social links and more.
  */
  
  // Extra header on/off
@@ -147,7 +160,10 @@ function shoestrap_register_controls( $wp_customize ){
   ));
   
 /*
- * LAYOUT SECTION
+ * LAYOUT
+ * 
+ * In the layout section users can choose the sidebars layout,
+ * whether the theme should be responsive or not, the width of the sidebars etc.
  */
  
   // Responsive/Fixed-Width layout
@@ -242,7 +258,12 @@ function shoestrap_register_controls( $wp_customize ){
   // ));
   
 /*
- * TYPOGRAPHY SECTION
+ * TYPOGRAPHY
+ * 
+ * Users can choose a google webfont from google.com/webfonts
+ * and apply that font to elements of their page.
+ * 
+ * To select the font you want from google webfonts just enter its name.
  */
   
   // Enter the name of the Webfont to be used
@@ -270,10 +291,12 @@ function shoestrap_register_controls( $wp_customize ){
   
   
 /*
- * GENERAL COLORS AND BACKGROUND SECTION
+ * GENERAL COLORS AND BACKGROUND
+ * 
+ * This section contains coloration settings of our theme.
  */
  
-  // Links color
+  // Background Color
   $wp_customize->add_control( new WP_Customize_Color_Control(
     $wp_customize,
     'shoestrap_background_color',
@@ -310,7 +333,11 @@ function shoestrap_register_controls( $wp_customize ){
   ));
 
 /*
- * HERO SECTION
+ * HERO
+ * 
+ * The "hero" area of our theme is a place where we can add some content
+ * to be shown-off. It is the first thing users see when they visit our page
+ * and are useful for promoting content and/or other actions.
  */
  
   // Hero region title
@@ -412,7 +439,10 @@ function shoestrap_register_controls( $wp_customize ){
 
   
 /*
- * FOOTER SECTION
+ * FOOTER
+ * 
+ * This section is currently under-developed.
+ * The only setting here (for now) is a selection of a background color.
  */
   $wp_customize->add_control( new WP_Customize_Color_Control(
     $wp_customize,
@@ -426,7 +456,11 @@ function shoestrap_register_controls( $wp_customize ){
   ));
 
 /*
- * SOCIAL LINKS SECTION
+ * SOCIAL
+ * 
+ * The Social section allows users to enter their social links
+ * (facebook, twitter, google plus, pinterest) which can then be displayed
+ * in the navbar on the extra header region.
  */
  
   // Facebook link
@@ -464,6 +498,9 @@ function shoestrap_register_controls( $wp_customize ){
     'type'        => 'text',
     'priority'    => 4,
   ));
+  
+  
+  /********************** Social sharing buttons below this point **********************/
 
   // Facebook share buttons on posts
   $wp_customize->add_control( 'shoestrap_facebook_on_posts', array(
@@ -527,7 +564,20 @@ function shoestrap_register_controls( $wp_customize ){
 
 
 /*
- * ADVANCED SECTION
+ * ADVANCED
+ * 
+ * The advanced section allow users to enter their own css and/or scripts
+ * and place them either in the head or the footer of the page.
+ * These are textarea controls that we created in the beginning of this file.
+ * 
+ * CAUTION:
+ * Using this can be potentially dangerous for your site.
+ * Any content you enter here will be echoed with minimal checks 
+ * so you should be careful of your code.
+ * 
+ * To add css rules you must write <style>....your styles here...</style>
+ * To add a script you should write <script>....your styles here...</script>
+ * 
  */
  
   // Header scripts (css/js)
@@ -548,6 +598,9 @@ function shoestrap_register_controls( $wp_customize ){
 
 /*
  * NAVIGATION
+ * 
+ * The Navigation section is a WordPress default section.
+ * we will simply add any settings that belong here.
  */
  
   // Display NavBar Branding
@@ -562,6 +615,9 @@ function shoestrap_register_controls( $wp_customize ){
   ));
 
  
+  /*
+   * The below lines are simply for better live previewing results.
+   */
   $wp_customize -> get_setting( 'blogname' )                -> transport = 'postMessage';
   $wp_customize -> get_setting( 'shoestrap_hero_title' )    -> transport = 'postMessage';
   $wp_customize -> get_setting( 'shoestrap_hero_content' )  -> transport = 'postMessage';

@@ -20,7 +20,9 @@ function shoestrap_logo() {
 }
 
 /*
- * Extra function for the navbar logo
+ * Extra function for the navbar logo.
+ * Same as the shoestrap_logo function,
+ * with just a minor css tweak.
  */
 function shoestrap_navbar_brand() {
   if ( get_theme_mod( 'shoestrap_navbar_logo' ) != 0 ) {

@@ -5,9 +5,11 @@
  */
 function shoestrap_register_settings( $wp_customize ){
   
+  // Adds compatibility with wordpress's default background color control.
   $background_color = get_theme_mod( 'background_color' );
   $background_color = '#' . str_replace( '#', '', $background_color );
   
+  // Compatibility hack for previous versions of Shoestrap.
   if ( get_theme_mod( 'shoestrap_header_mode' ) == 'header' ) {
     $shoestrap_extra_branding = 1;
   } else {
