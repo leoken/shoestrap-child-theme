@@ -32,6 +32,9 @@ function shoestrap_css_hero() {
   ?>
 
   <style>
+  <?php if ( get_theme_mod( 'shoestrap_extra_branding' ) != 1 ) { ?>
+    .top-navbar .jumbotron{margin-top: -20px;}
+  <?php } ?>
     .jumbotron{
       <?php if ( $shoestrap_header_mode == 'navbar' ) { ?>
         margin-top: -17px;
