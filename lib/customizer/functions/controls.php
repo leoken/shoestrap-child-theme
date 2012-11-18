@@ -37,6 +37,24 @@ function shoestrap_register_controls( $wp_customize ){
     'priority'    => 1,
   ));
 
+  // Display NavBar on Top
+  $wp_customize->add_control( 'shoestrap_navbar_branding', array(
+    'label'       => __( 'Display Branding (Sitename or Logo)', 'shoestrap' ),
+    'section'     => 'shoestrap_navbar',
+    'settings'    => 'shoestrap_navbar_branding',
+    'type'        => 'checkbox',
+    'priority'    => 2,
+  ));
+
+  // Display NavBar on Top
+  $wp_customize->add_control( 'shoestrap_navbar_logo', array(
+    'label'       => __( 'Use Logo (if available) for branding', 'shoestrap' ),
+    'section'     => 'shoestrap_navbar',
+    'settings'    => 'shoestrap_navbar_logo',
+    'type'        => 'checkbox',
+    'priority'    => 3,
+  ));
+
   // Navbar background color
   $wp_customize->add_control( new WP_Customize_Color_Control(
     $wp_customize,
@@ -45,7 +63,7 @@ function shoestrap_register_controls( $wp_customize ){
       'label'     => 'Navbar Color',
       'section'   => 'shoestrap_navbar',
       'settings'  => 'shoestrap_navbar_color',
-      'priority'  => 2
+      'priority'  => 4
     )
   ));
   
