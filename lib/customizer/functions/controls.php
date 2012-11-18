@@ -88,16 +88,12 @@ function shoestrap_register_controls( $wp_customize ){
  */
  
  // Header mode (Header/Navbar)
-  $wp_customize->add_control( 'shoestrap_header_mode', array(
-    'label'       => __( 'Branding Mode', 'shoestrap' ),
+  $wp_customize->add_control( 'shoestrap_extra_branding', array(
+    'label'       => __( 'Display Extra Header', 'shoestrap' ),
     'section'     => 'shoestrap_header',
-    'settings'    => 'shoestrap_header_mode',
-    'type'        => 'select',
+    'settings'    => 'shoestrap_extra_branding',
+    'type'        => 'checkbox',
     'priority'    => 1,
-    'choices'     => array(
-      'header'    => __( 'Extra Header Area', 'shoestrap' ),
-      'navbar'    => __( 'NavBar', 'shoestrap' ),
-    ),
   ));
   
   // Header Background

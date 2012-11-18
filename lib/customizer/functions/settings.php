@@ -7,6 +7,12 @@ function shoestrap_register_settings( $wp_customize ){
   
   $background_color = get_theme_mod( 'background_color' );
   $background_color = '#' . str_replace( '#', '', $background_color );
+  
+  if ( get_theme_mod( 'shoestrap_header_mode' ) == 'header' ) {
+    $shoestrap_extra_branding = 1;
+  } else {
+    $shoestrap_extra_branding = 0;
+  }
 
   $settings   = array();
   
@@ -20,7 +26,7 @@ function shoestrap_register_settings( $wp_customize ){
   $settings[] = array( 'slug' => 'shoestrap_navbar_color',              'default' => '#ffffff' );
   
   // Extra Header Settings
-  $settings[] = array( 'slug' => 'shoestrap_header_mode',               'default' => 'navbar' );
+  $settings[] = array( 'slug' => 'shoestrap_extra_branding',            'default' => $shoestrap_extra_branding );
   $settings[] = array( 'slug' => 'shoestrap_header_loginlink',          'default' => '1' );
   $settings[] = array( 'slug' => 'shoestrap_header_backgroundcolor',    'default' => '#0066bb' );
   $settings[] = array( 'slug' => 'shoestrap_header_textcolor',          'default' => '#ffffff' );
