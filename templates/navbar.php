@@ -1,5 +1,5 @@
-<div id="main-subnav" class="container">
-  <div class="navbar" role="banner">
+<div id="main-subnav">
+  <div class="navbar container" role="banner">
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
