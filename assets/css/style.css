@@ -3161,3 +3161,7 @@ ul.social-networks li.social-networks a:hover {
 #shoestrap_icon a:hover {
   opacity: 1;
 }
+#main-subnav .container,
+#main-subnav .navbar-inner {
+  height: 40px;
+}
